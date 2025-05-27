@@ -1,7 +1,6 @@
 package com.example.rebild.di
 
 
-import com.example.rebild.di.FeatureScope
 import com.example.rebild.domain.interactors.GetProductByIdUseCase
 import com.example.rebild.domain.interactors.ProductsInteractor
 import dagger.Binds
