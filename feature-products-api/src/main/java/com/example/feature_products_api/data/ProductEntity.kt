@@ -1,4 +1,4 @@
-package com.example.rebild.data.room
+package com.example.feature_products_api.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,4 +15,4 @@ data class ProductEntity(
     val description: String = "",
     val count: Int = 0,
     val inCartCount: Int = 0,
-    )
+)

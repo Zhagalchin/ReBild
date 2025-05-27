@@ -1,4 +1,4 @@
-package com.example.rebild.data.room
+package com.example.core_database_api
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
