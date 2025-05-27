@@ -1,8 +1,9 @@
 package com.example.rebild.data.repositoriesImpl
 
 import android.util.Log
-import com.example.rebild.data.room.ProductDao
-import com.example.rebild.data.room.ProductEntity
+import com.example.core_database_api.ProductDao
+import com.example.core_database_api.ProductEntity
+
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
