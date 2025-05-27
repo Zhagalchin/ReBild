@@ -23,7 +23,7 @@ interface ProductsComponentImpl {
     companion object{
 
         @Volatile
-        private var daggerProductComponent: DaggerProductsComponentImpl? = null
+        private var daggerProductComponent: ProductsComponentImpl? = null
 
         fun initAndGet(deps: ProductsFeatureDeps): ProductsComponentImpl {
             return daggerProductComponent ?: synchronized(this) {
@@ -34,3 +34,4 @@ interface ProductsComponentImpl {
         }
     }
 }
+

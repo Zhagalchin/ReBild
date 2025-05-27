@@ -50,7 +50,10 @@ dependencies {
     implementation(libs.lifecycleLiveData)
     implementation(libs.lifecycleRuntime)
 
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
 
+    implementation(libs.okhttpLogging)
     implementation(libs.swiperefreshlayout)
     implementation(libs.glide)
     implementation(project(":core-common"))

@@ -17,6 +17,11 @@ dependencies{
     implementation(libs.coroutinesAndroid)
     implementation(libs.javax.inject)
     implementation(libs.roomRuntime)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+
+    implementation(libs.okhttpLogging)
+
 //    implementation(libs.roomKtx)
     implementation(project(":core-network-api"))
     implementation(project(":core-database-api"))
