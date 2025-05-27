@@ -80,5 +80,6 @@ dependencies {
     implementation(project(":core-database-impl"))
     implementation(project(":feature-products-api"))
     implementation(project(":feature-products-impl"))
+    implementation(project(":core-navigation-api"))
 
 }
