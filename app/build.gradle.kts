@@ -74,5 +74,7 @@ dependencies {
     ksp(libs.roomCompiler)
 
     // Core modules
+    implementation(project(":core-network-api"))
+    implementation(project(":core-network-impl"))
 
 }

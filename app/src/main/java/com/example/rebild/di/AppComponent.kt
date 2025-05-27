@@ -1,7 +1,7 @@
 package com.example.rebild.di
 
 import android.app.Application
-import com.example.rebild.data.retrofit.ApiService
+import com.example.core_network_api.NetworkComponentApi
 import com.example.rebild.data.room.ProductDao
 import com.example.rebild.domain.interactors.GetProductsUseCase
 import com.example.rebild.domain.repositories.ProductsRepository
@@ -11,12 +11,12 @@ import okhttp3.OkHttpClient
 
 
 @ApplicationScope
-@Component(modules = [DomainModule::class, DataModule::class])
+@Component(modules = [DomainModule::class, DataModule::class], dependencies = [NetworkComponentApi::class])
 interface AppComponent {
 
     fun application(): Application
-    fun apiService(): ApiService
-    fun okHttpClient(): OkHttpClient
+//    fun apiService(): ApiService
+//    fun okHttpClient(): OkHttpClient
     fun productDao(): ProductDao
     fun productsRepository(): ProductsRepository
     fun productsUseCase(): GetProductsUseCase
@@ -24,6 +24,6 @@ interface AppComponent {
 
     @Component.Factory
     interface ApplicationComponentFactory {
-        fun create(@BindsInstance application: Application): AppComponent
+        fun create(@BindsInstance application: Application, networkComponentApi: NetworkComponentApi): AppComponent
     }
 }

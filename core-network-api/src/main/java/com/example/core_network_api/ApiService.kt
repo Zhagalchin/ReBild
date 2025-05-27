@@ -1,6 +1,5 @@
-package com.example.rebild.data.retrofit
+package com.example.core_network_api
 
-import com.example.rebild.data.dto.ProductApiDTO
 import retrofit2.http.GET
 
 interface ApiService {

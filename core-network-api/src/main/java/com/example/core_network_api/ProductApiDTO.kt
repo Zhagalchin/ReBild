@@ -1,4 +1,4 @@
-package com.example.rebild.data.dto
+package com.example.core_network_api
 
 import kotlinx.serialization.Serializable
 

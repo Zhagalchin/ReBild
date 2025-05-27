@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "ReBild"
 include(":app")
- 
+include(":core-network-api")
+include(":core-network-impl")

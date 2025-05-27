@@ -49,7 +49,7 @@ class PDPFragment : Fragment(R.layout.pdp_fragment) {
 
 
     override fun onAttach(context: Context) {
-val appComponent = (requireActivity().application as MyApp).component
+val appComponent = (requireActivity().application as MyApp).appComponent
         DaggerPDPComponent.factory()
             .create(this,appComponent)
             .inject(this)

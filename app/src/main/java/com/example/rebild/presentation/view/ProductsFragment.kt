@@ -39,7 +39,7 @@ class ProductsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
-        val appComponent = (requireActivity().application as MyApp).component
+        val appComponent = (requireActivity().application as MyApp).appComponent
 
         DaggerProductsComponent.factory()
             .create(this, appComponent)
