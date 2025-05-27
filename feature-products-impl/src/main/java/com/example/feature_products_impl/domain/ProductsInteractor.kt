@@ -1,13 +1,15 @@
-package com.example.rebild.domain.interactors
+package com.example.feature_products_impl.domain
 
-import com.example.rebild.domain.ProductInList
-import com.example.rebild.domain.repositories.ProductsRepository
+
+import com.example.feature_products_api.domain.GetProductsUseCase
+import com.example.feature_products_api.domain.ProductInList
+import com.example.feature_products_api.domain.ProductsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ProductsInteractor @Inject constructor(private val productsRepository: ProductsRepository): GetProductByIdUseCase,
+class ProductsInteractor @Inject constructor(private val productsRepository: ProductsRepository):
     GetProductsUseCase {
     override suspend fun getProducts(): Flow<List<ProductInList>> {
       return  productsRepository.getProducts()
@@ -21,9 +23,6 @@ class ProductsInteractor @Inject constructor(private val productsRepository: Pro
         productsRepository.updateCartCount(guid,newCount )
     }
 
-    override suspend fun getProductById(guid: String): ProductInList? {
-        return productsRepository.getProductById(guid)
-    }
 
     override suspend fun refreshProducts()  {
         productsRepository.refreshProducts()
