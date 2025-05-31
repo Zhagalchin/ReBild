@@ -23,3 +23,5 @@ rootProject.name = "ReBild"
 include(":app")
 include(":core-network-api")
 include(":core-network-impl")
+include(":core-database-api")
+include(":core-database-impl")

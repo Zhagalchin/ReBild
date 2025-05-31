@@ -1,7 +1,8 @@
 package com.example.rebild.domain
 
+import com.example.core_database_api.ProductEntity
 import com.example.core_network_api.ProductApiDTO
-import com.example.rebild.data.room.ProductEntity
+
 import javax.inject.Inject
 
 

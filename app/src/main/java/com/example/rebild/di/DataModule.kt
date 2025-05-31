@@ -3,8 +3,7 @@ package com.example.rebild.di
 import android.app.Application
 import androidx.room.Room
 import com.example.rebild.data.repositoriesImpl.ProductRepositoryImpl
-import com.example.rebild.data.room.AppDataBase
-import com.example.rebild.data.room.ProductDao
+
 import com.example.rebild.domain.repositories.ProductsRepository
 import dagger.Binds
 import dagger.Module
@@ -53,20 +52,20 @@ interface DataModule {
 //                .create(ApiService::class.java)
 //        }
 
-        @Provides
-        @ApplicationScope
-        fun provideDataBase(application: Application): AppDataBase {
-            return Room.databaseBuilder(
-                application,
-                AppDataBase::class.java,
-                "app-db"
-            ).build()
-        }
-
-        @Provides
-        @ApplicationScope
-        fun provideProductDao(dataBase: AppDataBase): ProductDao {
-            return dataBase.productDAO()
-        }
+//        @Provides
+//        @ApplicationScope
+//        fun provideDataBase(application: Application): AppDataBase {
+//            return Room.databaseBuilder(
+//                application,
+//                AppDataBase::class.java,
+//                "app-db"
+//            ).build()
+//        }
+//
+//        @Provides
+//        @ApplicationScope
+//        fun provideProductDao(dataBase: AppDataBase): ProductDao {
+//            return dataBase.productDAO()
+//        }
     }
 }
