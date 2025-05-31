@@ -3,7 +3,7 @@ package com.example.rebild.presentation.viewModel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rebild.domain.interactors.GetProductByIdUseCase
+import com.example.feature_products_api.domain.GetProductByIdUseCase
 import com.example.rebild.presentation.viewObject.ProductInListVO
 import com.example.rebild.presentation.viewObject.ProductInListVOMapper
 import com.example.rebild.presentation.viewState.ProductsUiState

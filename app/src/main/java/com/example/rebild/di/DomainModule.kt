@@ -1,8 +1,9 @@
 package com.example.rebild.di
 
 
-import com.example.rebild.domain.interactors.GetProductsUseCase
-import com.example.rebild.domain.interactors.ProductsInteractor
+
+import com.example.feature_products_api.domain.GetProductsUseCase
+import com.example.feature_products_impl.domain.ProductsInteractor
 import dagger.Binds
 import dagger.Module
 

@@ -1,11 +1,11 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.ksp)
+    kotlin("kapt")
 }
 
 android {
-    namespace = "com.example.feature_products_api"
+    namespace = "com.example.core_navigation_impl"
     compileSdk = 35
 
     defaultConfig {
@@ -34,17 +34,16 @@ android {
 }
 
 dependencies {
-    implementation(libs.coroutinesAndroid)
-    implementation(libs.javax.inject)
-    implementation(libs.roomRuntime)
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
 
-    implementation(libs.okhttpLogging)
-    implementation(libs.androidx.fragment.ktx)
-//    implementation(libs.roomKtx)
-    implementation(project(":core-network-api"))
-    implementation(project(":core-database-api"))
-
-    ksp(libs.roomCompiler)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit.v115)
+    androidTestImplementation(libs.androidx.espresso.core.v351)
+    implementation(project(":core-navigation-api"))
+    implementation(project(":feature-products-api"))
+    implementation(project(":feature-products-impl"))
+    implementation(libs.daggerAndroid)
+    kapt(libs.daggerCompiler)
 }

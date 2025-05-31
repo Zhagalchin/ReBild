@@ -4,8 +4,9 @@ import android.app.Application
 import com.example.core_database_api.DatabaseComponentApi
 import com.example.core_network_api.NetworkComponentApi
 import com.example.feature_products_api.di.ProductsFeatureDeps
-import com.example.rebild.domain.interactors.GetProductsUseCase
-import com.example.rebild.domain.repositories.ProductsRepository
+import com.example.feature_products_api.domain.GetProductsUseCase
+import com.example.feature_products_api.domain.ProductsRepository
+
 import dagger.BindsInstance
 import dagger.Component
 import okhttp3.OkHttpClient
@@ -23,8 +24,8 @@ interface AppComponent {
     //    fun apiService(): ApiService
 //    fun okHttpClient(): OkHttpClient
 //    fun productDao(): ProductDao
-    fun productsRepository(): ProductsRepository
-    fun productsUseCase(): GetProductsUseCase
+//    fun productsRepository(): ProductsRepository
+//    fun productsUseCase(): GetProductsUseCase
 
 
     @Component.Factory

@@ -57,7 +57,7 @@ dependencies {
     implementation(libs.swiperefreshlayout)
     implementation(libs.glide)
     implementation(project(":core-common"))
-    implementation(project(":feature-products-api"))
     implementation(project(":core-network-api"))
     implementation(project(":core-database-api"))
+    implementation(project(":feature-products-api"))
 }
