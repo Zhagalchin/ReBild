@@ -1,5 +1,6 @@
 package com.example.rebild.di
 
+import com.example.feature_products_api.di.ProductsFeatureDeps
 import com.example.rebild.di.vmModuls.ProductsViewModelModule
 import com.example.rebild.di.vmModuls.ViewModelFactoryModule
 import com.example.rebild.presentation.view.ProductsFragment
@@ -16,7 +17,7 @@ interface ProductsComponent {
     interface Factory{
         fun create(
             @BindsInstance fragment: ProductsFragment,
-            appComponent: AppComponent
+            productsFeatureDeps: ProductsFeatureDeps
         ): ProductsComponent
     }
 }

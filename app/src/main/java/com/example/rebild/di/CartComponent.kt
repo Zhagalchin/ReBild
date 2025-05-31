@@ -1,6 +1,7 @@
 package com.example.rebild.di
 
 
+import com.example.rebild.di.vmModuls.CartDeps
 import com.example.rebild.di.vmModuls.CartViewModelModule
 import com.example.rebild.di.vmModuls.ViewModelFactoryModule
 import com.example.rebild.presentation.view.CartFragment
@@ -9,8 +10,7 @@ import dagger.BindsInstance
 import dagger.Component
 
 @FeatureScope
-@Component(dependencies = [AppComponent::class],
-    modules = [ProductsModule::class, CartViewModelModule::class, ViewModelFactoryModule::class])
+@Component(dependencies = [CartDeps::class], modules = [CartViewModelModule::class])
 interface CartComponent {
     fun inject(fragment: CartFragment)
 
@@ -18,7 +18,7 @@ interface CartComponent {
     interface Factory{
         fun create(
             @BindsInstance fragment: CartFragment,
-            appComponent: AppComponent
+            cartDeps: CartDeps
         ): CartComponent
     }
 }

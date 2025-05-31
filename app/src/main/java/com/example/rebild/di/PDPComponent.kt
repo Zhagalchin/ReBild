@@ -1,6 +1,7 @@
 package com.example.rebild.di
 
 
+import com.example.rebild.di.vmModuls.CartViewModelModule
 import com.example.rebild.di.vmModuls.PDPViewModelModule
 import com.example.rebild.presentation.view.PDPFragment
 
@@ -8,8 +9,7 @@ import dagger.BindsInstance
 import dagger.Component
 
 @FeatureScope
-@Component(dependencies = [AppComponent::class],
-    modules = [PDPModule::class, PDPViewModelModule::class])
+@Component(dependencies = [PDPDeps::class], modules = [PDPViewModelModule::class])
 interface PDPComponent {
     fun inject(fragment: PDPFragment)
 
@@ -17,7 +17,7 @@ interface PDPComponent {
     interface Factory{
         fun create(
             @BindsInstance fragment: PDPFragment,
-            appComponent: AppComponent
+            pdpDeps: PDPDeps
         ): PDPComponent
     }
 }
