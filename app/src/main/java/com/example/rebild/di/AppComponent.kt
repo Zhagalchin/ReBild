@@ -12,7 +12,7 @@ import dagger.Component
 
 @ApplicationScope
 @Component(
-    modules = [DomainModule::class, DataModule::class],
+    modules = [DomainModule::class, DataModule::class, AppModule::class],
     dependencies = [NetworkComponentApi::class, DatabaseComponentApi::class]
 )
 interface AppComponent {
@@ -21,6 +21,7 @@ interface AppComponent {
 
     fun productsRepository(): ProductsRepository
     fun productsUseCase(): GetProductsUseCase
+    fun componentInjector(): FeatureComponentInjector
 
 
     @Component.Factory

@@ -11,8 +11,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core-common" />
+            <option value="$PROJECT_DIR$/core-database-api" />
+            <option value="$PROJECT_DIR$/core-database-impl" />
+            <option value="$PROJECT_DIR$/core-navigation-api" />
+            <option value="$PROJECT_DIR$/core-navigation-impl" />
             <option value="$PROJECT_DIR$/core-network-api" />
             <option value="$PROJECT_DIR$/core-network-impl" />
+            <option value="$PROJECT_DIR$/feature-products-api" />
+            <option value="$PROJECT_DIR$/feature-products-impl" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

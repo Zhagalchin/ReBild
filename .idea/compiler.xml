@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11">
-      <module name="ReBild.core-common" target="21" />
-      <module name="ReBild.core-database-impl" target="21" />
-      <module name="ReBild.core-navigation-api" target="21" />
-      <module name="ReBild.core-navigation-impl" target="21" />
-      <module name="ReBild.feature-products-api" target="21" />
-      <module name="ReBild.feature-products-impl" target="21" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>

@@ -78,5 +78,6 @@ dependencies {
     implementation(project(":core-network-impl"))
     implementation(project(":core-database-api"))
     implementation(project(":core-database-impl"))
+    implementation(project(":core-common"))
 
 }
