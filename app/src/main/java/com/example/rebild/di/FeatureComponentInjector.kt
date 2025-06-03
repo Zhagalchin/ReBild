@@ -1,8 +1,8 @@
 package com.example.rebild.di
 
 import com.example.core_common.ComponentInjector
+import com.example.feature_products_impl.presentation.ProductsFragment
 import com.example.rebild.presentation.view.CartFragment
-import com.example.rebild.presentation.view.ProductsFragment
 import javax.inject.Inject
 
 class FeatureComponentInjector @Inject constructor(

@@ -2,7 +2,7 @@ package com.example.rebild
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.rebild.presentation.view.ProductsFragment
+import com.example.feature_products_impl.presentation.ProductsFragment
 
 class MainActivity : AppCompatActivity() {
 

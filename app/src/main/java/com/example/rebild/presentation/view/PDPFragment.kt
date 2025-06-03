@@ -14,15 +14,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
+import com.example.feature_products_api.presentation.ProductInListVO
+import com.example.feature_products_api.presentation.ProductsUiState
+import com.example.feature_products_impl.presentation.ProductsViewModel
 import com.example.rebild.R
 import com.example.rebild.di.DaggerPDPComponent
 import com.example.rebild.di.MyApp
 import com.example.rebild.di.PDPComponent
 import com.example.rebild.presentation.viewModel.PDPViewModel
-import com.example.rebild.presentation.viewModel.ProductsViewModel
+
 import com.example.rebild.presentation.viewModel.ViewModelFactory
-import com.example.rebild.presentation.viewObject.ProductInListVO
-import com.example.rebild.presentation.viewState.ProductsUiState
+
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import javax.inject.Inject

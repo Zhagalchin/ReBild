@@ -1,4 +1,4 @@
-package com.example.feature_products_api.repo
+package com.example.feature_products_impl.repo
 
 
 import com.example.core_network_api.ApiService

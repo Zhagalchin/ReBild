@@ -1,7 +1,7 @@
-package com.example.feature_products_api.repo
+package com.example.feature_products_impl.repo
 
 import android.util.Log
-import com.example.feature_products_api.domain.DomainMapper
+import com.example.feature_products_impl.domain.DomainMapper
 import com.example.feature_products_api.domain.ProductInList
 import com.example.feature_products_api.domain.ProductsRepository
 

@@ -1,7 +1,8 @@
-package com.example.feature_products_api.domain
+package com.example.feature_products_impl.domain
 
 import com.example.core_database_api.ProductEntity
 import com.example.core_network_api.ProductApiDTO
+import com.example.feature_products_api.domain.ProductInList
 
 import javax.inject.Inject
 

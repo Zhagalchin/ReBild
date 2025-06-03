@@ -1,6 +1,7 @@
 package com.example.rebild.domain.interactors
 
-import com.example.rebild.domain.ProductInList
+
+import com.example.feature_products_api.domain.ProductInList
 import kotlinx.coroutines.flow.Flow
 
 interface GetProductsUseCase {

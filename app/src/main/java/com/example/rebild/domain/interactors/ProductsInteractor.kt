@@ -1,7 +1,8 @@
 package com.example.rebild.domain.interactors
 
-import com.example.rebild.domain.ProductInList
-import com.example.rebild.domain.repositories.ProductsRepository
+
+import com.example.feature_products_api.domain.ProductInList
+import com.example.feature_products_api.domain.ProductsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext

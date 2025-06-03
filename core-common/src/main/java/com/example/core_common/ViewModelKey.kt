@@ -1,4 +1,4 @@
-package com.example.rebild.di
+package com.example.core_common
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

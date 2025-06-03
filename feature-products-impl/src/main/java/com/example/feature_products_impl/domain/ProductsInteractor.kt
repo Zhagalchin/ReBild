@@ -1,5 +1,8 @@
-package com.example.feature_products_api.domain
+package com.example.feature_products_impl.domain
 
+import com.example.feature_products_api.domain.GetProductsUseCase
+import com.example.feature_products_api.domain.ProductInList
+import com.example.feature_products_api.domain.ProductsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext

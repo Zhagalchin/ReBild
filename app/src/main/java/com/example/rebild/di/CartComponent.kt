@@ -10,7 +10,7 @@ import dagger.Component
 
 @FeatureScope
 @Component(dependencies = [AppComponent::class],
-    modules = [ProductsModule::class, CartViewModelModule::class, ViewModelFactoryModule::class])
+    modules = [CartViewModelModule::class, ViewModelFactoryModule::class])
 interface CartComponent {
     fun inject(fragment: CartFragment)
 

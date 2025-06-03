@@ -4,15 +4,16 @@ import android.app.Application
 import com.example.core_database_api.DatabaseComponentApi
 import com.example.core_database_api.ProductDao
 import com.example.core_network_api.NetworkComponentApi
+import com.example.feature_products_api.domain.ProductsRepository
+import com.example.feature_products_impl.di.ViewModelFactoryModule
 import com.example.rebild.domain.interactors.GetProductsUseCase
-import com.example.rebild.domain.repositories.ProductsRepository
 import dagger.BindsInstance
 import dagger.Component
 
 
 @ApplicationScope
 @Component(
-    modules = [DomainModule::class, DataModule::class, AppModule::class],
+    modules = [DomainModule::class, DataModule::class, AppModule::class, ViewModelFactoryModule::class],
     dependencies = [NetworkComponentApi::class, DatabaseComponentApi::class]
 )
 interface AppComponent {

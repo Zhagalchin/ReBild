@@ -1,7 +1,7 @@
 package com.example.rebild.di.vmModuls
 
 import androidx.lifecycle.ViewModel
-import com.example.rebild.di.ViewModelKey
+import com.example.core_common.ViewModelKey
 import com.example.rebild.presentation.viewModel.PDPViewModel
 import dagger.Binds
 import dagger.Module

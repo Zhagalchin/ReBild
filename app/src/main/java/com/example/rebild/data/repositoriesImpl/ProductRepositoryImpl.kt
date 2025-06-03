@@ -1,9 +1,10 @@
 package com.example.rebild.data.repositoriesImpl
 
 import android.util.Log
-import com.example.rebild.domain.DomainMapper
-import com.example.rebild.domain.ProductInList
-import com.example.rebild.domain.repositories.ProductsRepository
+import com.example.feature_products_impl.domain.DomainMapper
+import com.example.feature_products_api.domain.ProductInList
+import com.example.feature_products_api.domain.ProductsRepository
+
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

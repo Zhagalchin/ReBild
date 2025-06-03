@@ -13,12 +13,13 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.feature_products_api.presentation.ProductsUiState
 import com.example.rebild.R
 import com.example.rebild.di.DaggerCartComponent
 import com.example.rebild.di.MyApp
 import com.example.rebild.presentation.viewModel.CartViewModel
 import com.example.rebild.presentation.viewModel.ViewModelFactory
-import com.example.rebild.presentation.viewState.ProductsUiState
+
 
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch

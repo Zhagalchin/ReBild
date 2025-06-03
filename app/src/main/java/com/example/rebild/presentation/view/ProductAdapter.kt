@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import com.example.feature_products_api.presentation.ProductInListVO
 import com.example.rebild.R
-import com.example.rebild.presentation.viewObject.ProductInListVO
 
 class ProductAdapter(
     private val onItemClick: (String) -> Unit,

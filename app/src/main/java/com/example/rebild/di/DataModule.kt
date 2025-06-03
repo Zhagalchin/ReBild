@@ -2,9 +2,9 @@ package com.example.rebild.di
 
 import android.app.Application
 import androidx.room.Room
+import com.example.feature_products_api.domain.ProductsRepository
 import com.example.rebild.data.repositoriesImpl.ProductRepositoryImpl
 
-import com.example.rebild.domain.repositories.ProductsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

@@ -1,7 +1,7 @@
 package com.example.feature_products_impl.di
 
 import com.example.feature_products_api.domain.ProductsRepository
-import com.example.feature_products_api.repo.ProductRepositoryImpl
+import com.example.feature_products_impl.repo.ProductRepositoryImpl
 
 import dagger.Binds
 import dagger.Module
