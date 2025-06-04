@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             (application as MyApp).appComponent.componentInjector().createProductsComponent(this.application)
             (application as MyApp).appComponent.componentInjector().createPDPComponent(this.application)
+            (application as MyApp).appComponent.componentInjector().createCartComponent(this.application)
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, ProductsFragment())

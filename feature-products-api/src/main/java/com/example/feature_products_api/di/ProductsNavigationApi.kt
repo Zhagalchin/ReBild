@@ -1,4 +1,4 @@
-package com.example.feature_cart_api.domain
+package com.example.feature_products_api.di
 
 import androidx.fragment.app.Fragment
 

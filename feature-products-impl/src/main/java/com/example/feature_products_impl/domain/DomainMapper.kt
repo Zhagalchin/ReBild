@@ -2,7 +2,7 @@ package com.example.feature_products_impl.domain
 
 import com.example.core_database_api.ProductEntity
 import com.example.core_network_api.ProductApiDTO
-import com.example.feature_cart_api.domain.ProductInList
+import com.example.feature_products_api.domain.ProductInList
 
 import javax.inject.Inject
 
@@ -18,8 +18,8 @@ class DomainMapper @Inject constructor(){
         isInCart = dto.isInCart,
         count = dto.count,
     )
-    fun mapFromEntity(entity: ProductEntity): com.example.feature_cart_api.domain.ProductInList =
-        com.example.feature_cart_api.domain.ProductInList(
+    fun mapFromEntity(entity: ProductEntity):ProductInList =
+        ProductInList(
             guid = entity.guid,
             name = entity.name,
             price = entity.price,

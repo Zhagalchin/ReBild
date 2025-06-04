@@ -1,11 +1,12 @@
 package com.example.feature_products_impl.presentation
 
-import com.example.feature_cart_api.domain.ProductInList
+
+import com.example.feature_products_api.domain.ProductInList
 import com.example.feature_products_api.presentation.ProductInListVO
 import javax.inject.Inject
 
 class ProductInListVOMapper @Inject constructor() {
-    fun map(productInList: com.example.feature_cart_api.domain.ProductInList): ProductInListVO {
+    fun map(productInList: ProductInList): ProductInListVO {
         return ProductInListVO(
             guid = productInList.guid,
             image = productInList.image,

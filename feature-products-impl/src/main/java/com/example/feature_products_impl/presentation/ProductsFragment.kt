@@ -15,7 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.feature_cart_api.domain.ProductsNavigationApi
+import com.example.feature_products_api.di.ProductsNavigationApi
 import com.example.feature_products_api.presentation.ProductsUiState
 import com.example.feature_products_impl.R
 import com.example.feature_products_impl.di.ProductsComponentImpl
@@ -35,7 +35,7 @@ class ProductsFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
 
     @Inject
-    lateinit var productsNavigationApi: com.example.feature_cart_api.domain.ProductsNavigationApi
+    lateinit var productsNavigationApi: ProductsNavigationApi
 
 
     private val vm: ProductsViewModel by lazy {
@@ -70,7 +70,7 @@ class ProductsFragment : Fragment() {
 
         val swipeRefreshLayout = view
             .findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             Log.e("ProductsFragment", "First time loading data")
             vm.refreshData()
         }
@@ -86,6 +86,7 @@ class ProductsFragment : Fragment() {
                             "Проблемы с интернетом".showError()
                             swipeRefreshLayout.isRefreshing = false
                         }
+
                         is ProductsUiState.Loading -> swipeRefreshLayout.isRefreshing = true
                         is ProductsUiState.Success -> {
                             swipeRefreshLayout.isRefreshing = false
@@ -109,7 +110,7 @@ class ProductsFragment : Fragment() {
             onFavoriteClick = { guid, isFavorite ->
                 vm.updateFavoriteStatus(guid, isFavorite)
             },
-            onCartCountChanged = {guid, newCount ->
+            onCartCountChanged = { guid, newCount ->
                 vm.updateCartCount(guid, newCount)
             })
 
@@ -134,13 +135,7 @@ class ProductsFragment : Fragment() {
 
 
     private fun openCartFragment() {
-        TODO("productsNavigationApi.\n")
-
-//        requireActivity().supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.fragmentContainer, CartFragment())
-//            .addToBackStack(null)
-//            .commit()
+        productsNavigationApi.navigateToCart(this)
     }
 
     override fun onDestroyView() {
@@ -148,7 +143,6 @@ class ProductsFragment : Fragment() {
         Log.e("fragment", "onDestroyView")
 
     }
-
 
 
 }

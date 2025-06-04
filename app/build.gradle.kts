@@ -82,6 +82,8 @@ dependencies {
     implementation(project(":feature-products-impl"))
     implementation(project(":feature-PDP-api"))
     implementation(project(":feature-PDP-impl"))
+    implementation(project(":feature-cart-api"))
+    implementation(project(":feature-cart-impl"))
 
     implementation(project(":core-common"))
 

@@ -1,20 +1,21 @@
 package com.example.feature_products_impl.domain
 
-import com.example.feature_cart_api.domain.GetProductsUseCase
-import com.example.feature_cart_api.domain.ProductInList
-import com.example.feature_cart_api.domain.ProductsRepository
+
+import com.example.feature_products_api.domain.GetProductsUseCase
+import com.example.feature_products_api.domain.ProductInList
+import com.example.feature_products_api.domain.ProductsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ProductsInteractor @Inject constructor(private val productsRepository: com.example.feature_cart_api.domain.ProductsRepository):
-    com.example.feature_cart_api.domain.GetProductsUseCase {
-    override suspend fun getProducts(): Flow<List<com.example.feature_cart_api.domain.ProductInList>> {
+class ProductsInteractor @Inject constructor(private val productsRepository: ProductsRepository):
+    GetProductsUseCase {
+    override suspend fun getProducts(): Flow<List<ProductInList>> {
       return  productsRepository.getProducts()
     }
 
-    override suspend fun getProductsInCart(): Flow<List<com.example.feature_cart_api.domain.ProductInList>> {
+    override suspend fun getProductsInCart(): Flow<List<ProductInList>> {
        return productsRepository.getProductsInCart()
     }
 

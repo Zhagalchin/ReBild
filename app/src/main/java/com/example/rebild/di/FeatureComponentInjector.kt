@@ -5,10 +5,12 @@ import com.example.core_database_api.ProductDao
 import com.example.core_database_impl.DatabaseComponentImpl
 import com.example.core_network_api.ApiService
 import com.example.core_network_impl.NetworkComponentImpl
+import com.example.feature_cart_api.CartFeatureDeps
 import com.example.feature_pdp_api.di.PDPFeatureDeps
 import com.example.feature_pdp_impl.di.PDPComponent
 import com.example.feature_products_api.di.ProductsFeatureDeps
-import com.example.feature_cart_api.domain.ProductsNavigationApi
+import com.example.feature_cart_impl.di.CartComponent
+import com.example.feature_products_api.di.ProductsNavigationApi
 import com.example.feature_products_impl.di.ProductsComponentImpl
 import com.example.rebild.navigation.ProductsNavigationImpl
 import okhttp3.OkHttpClient
@@ -18,12 +20,12 @@ object FeatureComponentInjector {
     var isFirstAppLaunch = true
 
 
-    fun createProductsComponent(application: Application){
+    fun createProductsComponent(application: Application) {
 
-       val productsComponent =  ProductsComponentImpl.initAndGet(object : ProductsFeatureDeps {
+        val productsComponent = ProductsComponentImpl.initAndGet(object : ProductsFeatureDeps {
 
             override fun productDao(): ProductDao {
-                return  DatabaseComponentImpl.getAndInit(application).productDao()
+                return DatabaseComponentImpl.getAndInit(application).productDao()
             }
 
             override fun provideLoggingInterceptor(): HttpLoggingInterceptor {
@@ -41,16 +43,16 @@ object FeatureComponentInjector {
 
             }
 
-           override fun productsNavigationApi(): com.example.feature_cart_api.domain.ProductsNavigationApi {
-               return ProductsNavigationImpl()
-           }
-       })
+            override fun productsNavigationApi(): ProductsNavigationApi {
+                return ProductsNavigationImpl()
+            }
+        })
     }
 
-    fun createPDPComponent(application: Application){
+    fun createPDPComponent(application: Application) {
         val PDPComponent = PDPComponent.initAndGet(object : PDPFeatureDeps {
             override fun productDao(): ProductDao {
-                return  DatabaseComponentImpl.getAndInit(application).productDao()
+                return DatabaseComponentImpl.getAndInit(application).productDao()
             }
 
             override fun provideLoggingInterceptor(): HttpLoggingInterceptor {
@@ -65,5 +67,30 @@ object FeatureComponentInjector {
                 return NetworkComponentImpl.initAndGet().okHttpClient()
             }
         })
+    }
+
+    fun createCartComponent(application: Application) {
+        val cartComponent = CartComponent.initAndGet(object : CartFeatureDeps {
+
+            override fun productDao(): ProductDao {
+                return DatabaseComponentImpl.getAndInit(application).productDao()
+            }
+
+            override fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+                return NetworkComponentImpl.initAndGet().provideLoggingInterceptor()
+
+            }
+
+            override fun apiService(): ApiService {
+                return NetworkComponentImpl.initAndGet().apiService()
+
+            }
+
+            override fun okHttpClient(): OkHttpClient {
+                return NetworkComponentImpl.initAndGet().okHttpClient()
+
+            }
+        }
+        )
     }
 }
