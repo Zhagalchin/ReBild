@@ -80,6 +80,9 @@ dependencies {
     implementation(project(":core-database-impl"))
     implementation(project(":feature-products-api"))
     implementation(project(":feature-products-impl"))
+    implementation(project(":feature-PDP-api"))
+    implementation(project(":feature-PDP-impl"))
+
     implementation(project(":core-common"))
 
 }

@@ -15,8 +15,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.core_common.ComponentInjector
+import com.example.feature_products_api.domain.ProductsNavigationApi
 import com.example.feature_products_api.presentation.ProductsUiState
 import com.example.feature_products_impl.R
+import com.example.feature_products_impl.di.DaggerProductsComponentImpl
 import com.example.feature_products_impl.di.ProductsComponentImpl
 
 
@@ -33,6 +36,8 @@ class ProductsFragment : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
+    @Inject
+    lateinit var productsNavigationApi: ProductsNavigationApi
 
 
     private val vm: ProductsViewModel by lazy {
@@ -41,8 +46,7 @@ class ProductsFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        ProductsComponentImpl.daggerProductComponent?.inject(this)
-
+        ProductsComponentImpl.getInstance().inject(this)
     }
 
 
@@ -126,17 +130,8 @@ class ProductsFragment : Fragment() {
 
 
     private fun openPDPFragment(productId: String) {
-        val bundle = Bundle().apply {
-            putString("productId", productId)
-        }
+        productsNavigationApi.navigatePDO(this, productId)
 
-        TODO("productsNavigationApi.\n")
-
-
-//        requireActivity().supportFragmentManager.beginTransaction()
-//            .replace(R.id.fragmentContainer, PDPFragment::class.java, bundle)
-//            .addToBackStack(null)
-//            .commit()
     }
 
 

@@ -6,6 +6,7 @@ import com.example.feature_products_api.domain.ProductInList
 import com.example.feature_products_api.domain.ProductsRepository
 
 
+
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -26,12 +27,7 @@ class ProductRepositoryImpl @Inject constructor(
         return getProducts().map { list -> list.filter {product-> product.isInCart } }
     }
 
-    override suspend fun getProductById(guid: String): ProductInList? {
-        val oldCountEntity = localProductSource.getProductById(guid)
-        localProductSource.updateCount(oldCountEntity)
-        return  oldCountEntity?.let { mapper.mapFromEntity(it) }
 
-    }
 
 
 

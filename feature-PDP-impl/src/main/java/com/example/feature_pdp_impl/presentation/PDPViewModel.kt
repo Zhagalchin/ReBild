@@ -1,12 +1,11 @@
-package com.example.rebild.presentation.viewModel
+package com.example.feature_pdp_impl.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.feature_products_api.presentation.ProductInListVO
-import com.example.feature_products_api.presentation.ProductsUiState
-import com.example.feature_products_impl.presentation.ProductInListVOMapper
-import com.example.rebild.domain.interactors.GetProductByIdUseCase
+import com.example.feature_pdp_api.domain.GetProductByIdUseCase
+import com.example.feature_pdp_api.presentation.ProductInListVO
+import com.example.feature_pdp_api.presentation.ProductsUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

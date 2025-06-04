@@ -2,7 +2,6 @@ package com.example.feature_products_impl.di
 
 import com.example.feature_products_api.di.ProductsFeatureDeps
 import com.example.feature_products_impl.presentation.ProductsFragment
-import com.example.feature_products_impl.presentation.ProductsViewModel
 import dagger.Component
 
 @Component(dependencies = [ProductsFeatureDeps::class],
@@ -15,13 +14,20 @@ interface ProductsComponentImpl {
     }
     companion object{
 
+
+
         @Volatile
-        var daggerProductComponent: ProductsComponentImpl? = null
+       private var _daggerProductComponent: ProductsComponentImpl? = null
+
+
+        fun getInstance(): ProductsComponentImpl{
+            return checkNotNull(_daggerProductComponent)
+        }
 
         fun initAndGet(deps: ProductsFeatureDeps): ProductsComponentImpl {
-            return daggerProductComponent ?: synchronized(this) {
-                daggerProductComponent ?: DaggerProductsComponentImpl.factory().create(deps).also {
-                    daggerProductComponent = it
+            return _daggerProductComponent ?: synchronized(this) {
+                _daggerProductComponent ?: DaggerProductsComponentImpl.factory().create(deps).also {
+                    _daggerProductComponent = it
                 }
             }
         }

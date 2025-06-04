@@ -1,23 +1,70 @@
 package com.example.rebild.di
 
-import com.example.core_common.ComponentInjector
-import com.example.feature_products_impl.presentation.ProductsFragment
-import com.example.rebild.presentation.view.CartFragment
+import android.app.Application
+import com.example.core_database_api.ProductDao
+import com.example.core_database_impl.DatabaseComponentImpl
+import com.example.core_network_api.ApiService
+import com.example.core_network_impl.NetworkComponentImpl
+import com.example.feature_pdp_api.di.PDPFeatureDeps
+import com.example.feature_pdp_impl.di.PDPComponent
+import com.example.feature_products_api.di.ProductsFeatureDeps
+import com.example.feature_products_api.domain.ProductsNavigationApi
+import com.example.feature_products_impl.di.ProductsComponentImpl
+import com.example.rebild.navigation.ProductsNavigationImpl
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import javax.inject.Inject
 
-class FeatureComponentInjector @Inject constructor(
-    private val appComponent: AppComponent
-): ComponentInjector {
-    override fun inject(target: Any) {
-        when (target){
-            is ProductsFragment -> TODO()
-            is PDPComponent -> TODO()
-            is CartFragment -> TODO()
-            else -> throw IllegalArgumentException("Unknown fragment type: ${target::class.java}")
-        }
+object FeatureComponentInjector {
+    var isFirstAppLaunch = true
+
+
+    fun createProductsComponent(application: Application){
+
+       val productsComponent =  ProductsComponentImpl.initAndGet(object : ProductsFeatureDeps {
+
+            override fun productDao(): ProductDao {
+                return  DatabaseComponentImpl.getAndInit(application).productDao()
+            }
+
+            override fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+                return NetworkComponentImpl.initAndGet().provideLoggingInterceptor()
+
+            }
+
+            override fun apiService(): ApiService {
+                return NetworkComponentImpl.initAndGet().apiService()
+
+            }
+
+            override fun okHttpClient(): OkHttpClient {
+                return NetworkComponentImpl.initAndGet().okHttpClient()
+
+            }
+
+           override fun productsNavigationApi(): ProductsNavigationApi {
+               return ProductsNavigationImpl()
+           }
+       })
     }
 
-    private fun injectProductsFragment(fragment: ProductsFragment){
-TODO("Тут нужно будет создать через фабрику дагера ")
+    fun createPDPComponent(application: Application){
+        val PDPComponent = PDPComponent.initAndGet(object : PDPFeatureDeps {
+            override fun productDao(): ProductDao {
+                return  DatabaseComponentImpl.getAndInit(application).productDao()
+            }
+
+            override fun provideLoggingInterceptor(): HttpLoggingInterceptor {
+                return NetworkComponentImpl.initAndGet().provideLoggingInterceptor()
+            }
+
+            override fun apiService(): ApiService {
+                return NetworkComponentImpl.initAndGet().apiService()
+            }
+
+            override fun okHttpClient(): OkHttpClient {
+                return NetworkComponentImpl.initAndGet().okHttpClient()
+            }
+        })
     }
 }

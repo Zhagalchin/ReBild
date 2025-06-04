@@ -16,7 +16,7 @@ class ProductAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.product_list_item, parent, false)
+            .inflate(R.layout.product_item, parent, false)
         return ProductViewHolder(view, onItemClick, onFavoriteClick, onCartCountChanged)
     }
 

@@ -26,13 +26,6 @@ class ProductRepositoryImpl @Inject constructor(
         return getProducts().map { list -> list.filter {product-> product.isInCart } }
     }
 
-    override suspend fun getProductById(guid: String): ProductInList? {
-        val oldCountEntity = localProductSource.getProductById(guid)
-        localProductSource.updateCount(oldCountEntity)
-        return  oldCountEntity?.let { mapper.mapFromEntity(it) }
-
-    }
-
 
 
     override suspend fun updateFavoriteStatus(guid: String, isFavorite: Boolean) {

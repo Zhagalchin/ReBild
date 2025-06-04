@@ -1,4 +1,4 @@
-package com.example.rebild.presentation.view
+package com.example.feature_pdp_impl.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -14,16 +14,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
-import com.example.feature_products_api.presentation.ProductInListVO
-import com.example.feature_products_api.presentation.ProductsUiState
-import com.example.feature_products_impl.presentation.ProductsViewModel
-import com.example.rebild.R
-import com.example.rebild.di.DaggerPDPComponent
-import com.example.rebild.di.MyApp
-import com.example.rebild.di.PDPComponent
-import com.example.rebild.presentation.viewModel.PDPViewModel
-
-import com.example.rebild.presentation.viewModel.ViewModelFactory
+import com.example.feature_pdp_api.presentation.ProductInListVO
+import com.example.feature_pdp_api.presentation.ProductsUiState
+import com.example.feature_pdp_impl.R
+import com.example.feature_pdp_impl.di.PDPComponent
 
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -37,10 +31,7 @@ class PDPFragment : Fragment(R.layout.pdp_fragment) {
     private val viewModel: PDPViewModel by lazy {
         ViewModelProvider(this, viewModelFactory)[PDPViewModel::class.java]
     }
-    private val vm: ProductsViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)[ProductsViewModel::class.java]
-    }
-    private lateinit var pdpComponent: PDPComponent
+//    private lateinit var pdpComponent: PDPComponent
 
 
     private lateinit var progressBar: ProgressBar
@@ -51,10 +42,7 @@ class PDPFragment : Fragment(R.layout.pdp_fragment) {
 
 
     override fun onAttach(context: Context) {
-val appComponent = (requireActivity().application as MyApp).appComponent
-        DaggerPDPComponent.factory()
-            .create(this,appComponent)
-            .inject(this)
+        PDPComponent.getInstance().inject(this)
 
         super.onAttach(context)
     }
@@ -75,7 +63,11 @@ val appComponent = (requireActivity().application as MyApp).appComponent
                     when (state) {
                         is ProductsUiState.Error -> {
                             Snackbar.make(requireView(), state.message, Snackbar.LENGTH_LONG)
-                                .setAction("Повторить") { vm.loadProducts() }
+                                .setAction("Повторить") {
+                                    if (productId != null) {
+                                        viewModel.getProductById(productId)
+                                    }
+                                }
                                 .show()
                         }
 

@@ -1,5 +1,6 @@
 package com.example.rebild.di
 
+import android.app.Application
 import com.example.core_common.ComponentInjector
 import dagger.Module
 import dagger.Provides
@@ -10,8 +11,9 @@ interface AppModule {
 
         @Provides
         @ApplicationScope
-        fun provideComponentInjector(appComponent: AppComponent): ComponentInjector {
-            return FeatureComponentInjector(appComponent)
+        fun provideComponentInjector(application: Application): FeatureComponentInjector {
+            return FeatureComponentInjector
         }
+
     }
 }

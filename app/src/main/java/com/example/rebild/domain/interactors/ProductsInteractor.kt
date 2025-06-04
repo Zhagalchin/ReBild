@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ProductsInteractor @Inject constructor(private val productsRepository: ProductsRepository): GetProductByIdUseCase,
+class ProductsInteractor @Inject constructor(private val productsRepository: ProductsRepository):
     GetProductsUseCase {
     override suspend fun getProducts(): Flow<List<ProductInList>> {
       return  productsRepository.getProducts()
@@ -22,9 +22,6 @@ class ProductsInteractor @Inject constructor(private val productsRepository: Pro
         productsRepository.updateCartCount(guid,newCount )
     }
 
-    override suspend fun getProductById(guid: String): ProductInList? {
-        return productsRepository.getProductById(guid)
-    }
 
     override suspend fun refreshProducts()  {
         productsRepository.refreshProducts()

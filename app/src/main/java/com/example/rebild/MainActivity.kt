@@ -3,6 +3,7 @@ package com.example.rebild
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.feature_products_impl.presentation.ProductsFragment
+import com.example.rebild.di.MyApp
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
+            (application as MyApp).appComponent.componentInjector().createProductsComponent(this.application)
+            (application as MyApp).appComponent.componentInjector().createPDPComponent(this.application)
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragmentContainer, ProductsFragment())
