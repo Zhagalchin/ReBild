@@ -2,8 +2,8 @@ package com.example.rebild.data.repositoriesImpl
 
 import android.util.Log
 import com.example.feature_products_impl.domain.DomainMapper
-import com.example.feature_products_api.domain.ProductInList
-import com.example.feature_products_api.domain.ProductsRepository
+import com.example.feature_cart_api.domain.ProductInList
+import com.example.feature_cart_api.domain.ProductsRepository
 
 
 import kotlinx.coroutines.flow.Flow
@@ -14,15 +14,15 @@ class ProductRepositoryImpl @Inject constructor(
     private val localProductSource: LocalProductSource,
     private val remoteProductSource: RemoteProductSource,
     private val mapper: DomainMapper
-): ProductsRepository {
-    override suspend fun getProducts(): Flow<List<ProductInList>> {
+): com.example.feature_cart_api.domain.ProductsRepository {
+    override suspend fun getProducts(): Flow<List<com.example.feature_cart_api.domain.ProductInList>> {
         Log.e("Inject", "$this")
         return localProductSource.getProducts().map { list ->
             list.map { mapper.mapFromEntity(it) }
         }
     }
 
-    override suspend fun getProductsInCart(): Flow<List<ProductInList>> {
+    override suspend fun getProductsInCart(): Flow<List<com.example.feature_cart_api.domain.ProductInList>> {
         return getProducts().map { list -> list.filter {product-> product.isInCart } }
     }
 

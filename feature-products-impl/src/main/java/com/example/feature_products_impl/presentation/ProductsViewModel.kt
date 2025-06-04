@@ -3,7 +3,7 @@ package com.example.feature_products_impl.presentation
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.feature_products_api.domain.GetProductsUseCase
+import com.example.feature_cart_api.domain.GetProductsUseCase
 import com.example.feature_products_api.presentation.ProductInListVO
 import com.example.feature_products_api.presentation.ProductsUiState
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +15,7 @@ import javax.inject.Inject
 import kotlin.system.measureTimeMillis
 
 class ProductsViewModel @Inject constructor(
-    private val getProductUseCase: GetProductsUseCase,
+    private val getProductUseCase: com.example.feature_cart_api.domain.GetProductsUseCase,
     private val mapper: ProductInListVOMapper
 ) : ViewModel() {
 

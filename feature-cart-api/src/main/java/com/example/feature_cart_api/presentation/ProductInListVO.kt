@@ -1,6 +1,7 @@
-package com.example.feature_products_api.domain
+package com.example.feature_cart_api.presentation
 
-data class ProductInList (
+
+data class ProductInListVO(
     val guid: String,
     val image: String,
     val name: String,
@@ -9,6 +10,6 @@ data class ProductInList (
     val isFavorite: Boolean,
     val isInCart: Boolean,
     val description: String = "",
-    val count: Int ,
+    val count: Int,
     val inCartCount: Int = 0,
     )

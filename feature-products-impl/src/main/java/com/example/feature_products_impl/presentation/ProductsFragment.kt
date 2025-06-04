@@ -15,11 +15,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.core_common.ComponentInjector
-import com.example.feature_products_api.domain.ProductsNavigationApi
+import com.example.feature_cart_api.domain.ProductsNavigationApi
 import com.example.feature_products_api.presentation.ProductsUiState
 import com.example.feature_products_impl.R
-import com.example.feature_products_impl.di.DaggerProductsComponentImpl
 import com.example.feature_products_impl.di.ProductsComponentImpl
 
 
@@ -37,7 +35,7 @@ class ProductsFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelFactory
 
     @Inject
-    lateinit var productsNavigationApi: ProductsNavigationApi
+    lateinit var productsNavigationApi: com.example.feature_cart_api.domain.ProductsNavigationApi
 
 
     private val vm: ProductsViewModel by lazy {

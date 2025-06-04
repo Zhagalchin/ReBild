@@ -8,12 +8,11 @@ import com.example.core_network_impl.NetworkComponentImpl
 import com.example.feature_pdp_api.di.PDPFeatureDeps
 import com.example.feature_pdp_impl.di.PDPComponent
 import com.example.feature_products_api.di.ProductsFeatureDeps
-import com.example.feature_products_api.domain.ProductsNavigationApi
+import com.example.feature_cart_api.domain.ProductsNavigationApi
 import com.example.feature_products_impl.di.ProductsComponentImpl
 import com.example.rebild.navigation.ProductsNavigationImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import javax.inject.Inject
 
 object FeatureComponentInjector {
     var isFirstAppLaunch = true
@@ -42,7 +41,7 @@ object FeatureComponentInjector {
 
             }
 
-           override fun productsNavigationApi(): ProductsNavigationApi {
+           override fun productsNavigationApi(): com.example.feature_cart_api.domain.ProductsNavigationApi {
                return ProductsNavigationImpl()
            }
        })

@@ -1,4 +1,4 @@
-package com.example.feature_products_api.domain
+package com.example.feature_cart_api.domain
 
 import kotlinx.coroutines.flow.Flow
 

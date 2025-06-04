@@ -3,11 +3,12 @@ package com.example.rebild.navigation
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.feature_pdp_impl.presentation.PDPFragment
-import com.example.feature_products_api.domain.ProductsNavigationApi
+import com.example.feature_cart_api.domain.ProductsNavigationApi
 import com.example.rebild.R
 import javax.inject.Inject
 
-class ProductsNavigationImpl @Inject constructor() : ProductsNavigationApi {
+class ProductsNavigationImpl @Inject constructor() :
+    com.example.feature_cart_api.domain.ProductsNavigationApi {
     override fun navigatePDO(fragment: Fragment, guid: String) {
         if (fragment.activity != null) {
             fragment.activity?.let {

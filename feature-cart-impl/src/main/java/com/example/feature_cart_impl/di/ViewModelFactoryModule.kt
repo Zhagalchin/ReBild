@@ -1,7 +1,7 @@
-package com.example.rebild.di.vmModuls
+package com.example.feature_cart_impl.di
 
 import androidx.lifecycle.ViewModelProvider
-import com.example.rebild.presentation.viewModel.ViewModelFactory
+import com.example.feature_cart_impl.presentation.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 
