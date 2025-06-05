@@ -11,8 +11,8 @@ interface AppModule {
 
         @Provides
         @ApplicationScope
-        fun provideComponentInjector(application: Application): FeatureComponentInjector {
-            return FeatureComponentInjector
+        fun provideComponentInjector(): ComponentInjector {
+            return FeatureComponentInjector()
         }
 
     }

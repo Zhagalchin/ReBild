@@ -59,4 +59,5 @@ dependencies {
     implementation(libs.glide)
     implementation(project(":core-network-api"))
     implementation(project(":core-database-api"))
+    implementation(project(":core-common"))
 }

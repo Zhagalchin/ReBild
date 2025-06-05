@@ -1,6 +1,7 @@
 package com.example.rebild.di
 
 import android.app.Application
+import com.example.core_common.ComponentInjector
 import com.example.core_database_api.ProductDao
 import com.example.core_database_impl.DatabaseComponentImpl
 import com.example.core_network_api.ApiService
@@ -15,12 +16,13 @@ import com.example.feature_products_impl.di.ProductsComponentImpl
 import com.example.rebild.navigation.ProductsNavigationImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import javax.inject.Inject
 
-object FeatureComponentInjector {
-    var isFirstAppLaunch = true
+class FeatureComponentInjector @Inject constructor(): ComponentInjector {
+//    var isFirstAppLaunch = true
 
 
-    fun createProductsComponent(application: Application) {
+   override fun createProductsComponent(application: Application) {
 
         val productsComponent = ProductsComponentImpl.initAndGet(object : ProductsFeatureDeps {
 
@@ -46,10 +48,14 @@ object FeatureComponentInjector {
             override fun productsNavigationApi(): ProductsNavigationApi {
                 return ProductsNavigationImpl()
             }
+
+            override fun componentInjector(): ComponentInjector {
+                return FeatureComponentInjector()
+            }
         })
     }
 
-    fun createPDPComponent(application: Application) {
+    override fun createPDPComponent(application: Application) {
         val PDPComponent = PDPComponent.initAndGet(object : PDPFeatureDeps {
             override fun productDao(): ProductDao {
                 return DatabaseComponentImpl.getAndInit(application).productDao()
@@ -69,7 +75,7 @@ object FeatureComponentInjector {
         })
     }
 
-    fun createCartComponent(application: Application) {
+    override fun createCartComponent(application: Application) {
         val cartComponent = CartComponent.initAndGet(object : CartFeatureDeps {
 
             override fun productDao(): ProductDao {

@@ -14,7 +14,7 @@ class MyApp : Application() {
         val databaseComponent = DatabaseComponentImpl.getAndInit(this)
 
         appComponent = DaggerAppComponent.factory().create(this, networkComponent, databaseComponent)
-        FeatureComponentInjector.createProductsComponent(this)
+
 //        appComponent.componentInjector().createProductsComponent()
     }
 }
