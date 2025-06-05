@@ -7,6 +7,7 @@ import com.example.rebild.di.FeatureComponentInjector
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -15,8 +16,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
 
 //            FeatureComponentInjector.createCartComponent(this.application)
-           val fct =  FeatureComponentInjector()
-            fct.createProductsComponent(this.application)
+           FeatureComponentInjector.createProductsComponent(this.application)
 //            FeatureComponentInjector.createPDPComponent(this.application)
 
 //            (application as MyApp).appComponent.componentInjector().createProductsComponent(this.application)

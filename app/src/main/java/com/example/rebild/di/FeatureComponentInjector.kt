@@ -16,9 +16,9 @@ import com.example.feature_products_impl.di.ProductsComponentImpl
 import com.example.rebild.navigation.ProductsNavigationImpl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import javax.inject.Inject
 
-class FeatureComponentInjector @Inject constructor(): ComponentInjector {
+
+object FeatureComponentInjector : ComponentInjector {
 //    var isFirstAppLaunch = true
 
 
@@ -50,7 +50,7 @@ class FeatureComponentInjector @Inject constructor(): ComponentInjector {
             }
 
             override fun componentInjector(): ComponentInjector {
-                return FeatureComponentInjector()
+                return FeatureComponentInjector
             }
         })
     }

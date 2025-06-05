@@ -18,7 +18,7 @@ import dagger.Component
 interface AppComponent {
 
     fun application(): Application
-    fun componentInjector(): FeatureComponentInjector
+//    fun componentInjector(): FeatureComponentInjector
 
 
     @Component.Factory
